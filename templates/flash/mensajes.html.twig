@@ -1,0 +1,20 @@
+{% for type, messages in {
+			'error': 'error',
+			'warning': 'warning',
+			'info': 'info',
+			'success': 'success',
+		} %}
+	{% for message in app.flashes(type) %}
+		<div class="alert alert-{{ type == 'error' ? 'danger' : type }} flash-message">
+			<p>{{ message }}</p>
+		</div>
+	{% endfor %}
+{% endfor %}
+<script>
+	// Esperar 10 segundos y eliminar los mensajes flash
+	setTimeout(() => {
+	document.querySelectorAll('#flash-container .flash-message').forEach(message => {
+	message.remove();
+	});
+	}, 10000);
+</script>

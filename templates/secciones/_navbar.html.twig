@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg bg-light">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="{{ path('home') }}">
+			<img src="{{ asset('img/TripSync-Logo.png') }}" alt="Trip Sync Logo" style="width: 200px;">
+		</a>
+
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarContent">
+			{% if title is not defined 
+            or (title != 'TripSync — Planifica viajes en grupo' 
+            and title != 'Iniciar sesión o Registrarse') %}
+				<ul class="navbar-nav me-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('dashboard_panel_principal') }}">Panel Principal</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('auth_perfil') }}">Mi Perfil</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('viajes_listado') }}">Mis Viajes</a>
+					</li>
+				</ul>
+			{% endif %}
+
+			<div class="ms-auto">
+				{% if title == 'TripSync — Planifica viajes en grupo' %}
+					<a class="btn btn-outline-dark" href="/auth/login_registro">Entrar/Registrarse</a>
+				{% elseif title == 'Iniciar sesión o Registrarse' %}
+					<a class="btn btn-outline-light" href="/home">Volver</a>
+				{% else %}
+					<a class="btn btn-outline-light" href="/auth/logout">Cerrar sesión</a>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</nav>

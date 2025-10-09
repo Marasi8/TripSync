@@ -1,0 +1,77 @@
+{% extends 'base_app.html.twig' %}
+
+{% block title %}
+	{{ title|default('TripSync') }}
+{% endblock %}
+
+{% block stylesheets %}
+	<style>
+		.hover-card {
+			transition: transform 0.18s ease, box-shadow 0.18s ease;
+			border-radius: 0.5rem;
+			cursor: pointer;
+		}
+		.hover-card:hover {
+			background-color: #C6DBF0;
+			transform: translateY(-6px) scale(1.01);
+			box-shadow: 0 0.6rem 1.2rem rgba(0, 0, 0, 0.12);
+		}
+
+		.tamaño-textoTitle {
+			font-size: 1.5rem;
+		}
+		.tamaño-texto {
+			font-size: 1.1rem;
+		}
+
+		@media(max-width: 768px) {
+			.tamaño-textoTitle {
+				font-size: 1rem;
+			}
+			.tamaño-texto {
+				font-size: 0.85rem;
+			}
+		}
+
+
+		section {
+			padding: 2rem 0;
+		}
+	</style>
+{% endblock %}
+
+{% block content %}
+	<section>
+		<div class="container text-center mb-4">
+			<h1 class="tamaño-textoTitle">{{ title }}</h1>
+			<p class="tamaño-texto">Planifica, comparte gastos y disfruta</p>
+			<p class="tamaño-texto">TripSync se encarga del resto</p>
+
+			<a href="{{ path('dashboard_explorar') }}" class="btn btn-success mt-3">Explorar viajes públicos</a>
+		</div>
+
+		<div class="container">
+			<div class="row g-3">
+				<div class="col-12 col-md-6 hover-card p-3 border">
+					<h2 class="tamaño-textoTitle">Tu viaje, sin líos</h2>
+					<p class="tamaño-texto">Los mejores recuerdos se hacen en equipo. Tú solo te ocupas de vivir la aventura.</p>
+				</div>
+
+				<div class="col-12 col-md-6 hover-card p-3 border">
+					<h2 class="tamaño-textoTitle">Recoge tus mejores momentos</h2>
+					<p class="tamaño-texto">Comparte fotos, anécdotas y gastos con tu grupo. ¡Cada detalle cuenta!</p>
+				</div>
+
+				<div class="col-12 col-md-6 hover-card p-3 border">
+					<h2 class="tamaño-textoTitle">Colaboración sin complicaciones</h2>
+					<p class="tamaño-texto">Trabaja en equipo sin esfuerzo. Comparte tareas y mantén a todos en la misma página.</p>
+				</div>
+
+				<div class="col-12 col-md-6 hover-card p-3 border">
+					<h2 class="tamaño-textoTitle">Transparencia en cada gasto</h2>
+					<p class="tamaño-texto">Controla el bote común, registra aportes y liquidaciones, y salda cuentas en segundos.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}

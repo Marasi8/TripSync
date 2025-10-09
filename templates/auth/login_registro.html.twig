@@ -1,0 +1,83 @@
+{% extends 'base_app.html.twig' %}
+
+{% block estilos %}
+  <style>
+    .fondo {
+      background-color: #85C7DE;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    section {
+      padding: 2rem 0;
+    }
+
+    article {
+      margin-bottom: 2rem;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+<section class="container">
+    <h1 class="text-center">{{ title }}</h1>
+
+    <article class="fondo">
+        <h2>Iniciar sesión</h2>
+        {{ form_start(loginForm, {'action': path('auth_login'), 'method': 'POST'}) }}
+
+        <div class="mb-3">
+            {{ form_label(loginForm.username_correo) }}
+            {{ form_widget(loginForm.username_correo, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(loginForm.username_correo) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form_label(loginForm.password) }}
+            {{ form_widget(loginForm.password, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(loginForm.password) }}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+        {{ form_end(loginForm) }}
+    </article>
+
+    <article class="fondo">
+        <h3>Crear Cuenta</h3>
+        {{ form_start(registroForm, {'action': path('auth_registro'), 'method': 'POST'}) }}
+
+        <div class="mb-3">
+            {{ form_label(registroForm.nombre) }}
+            {{ form_widget(registroForm.nombre, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(registroForm.nombre) }}
+        </div>
+        <div class="mb-3">
+            {{ form_label(registroForm.correo) }}
+            {{ form_widget(registroForm.correo, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(registroForm.correo) }}
+        </div>
+        <div class="mb-3">
+            {{ form_label(registroForm.username) }}
+            {{ form_widget(registroForm.username, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(registroForm.username) }}
+        </div>
+        <div class="mb-3">
+            {{ form_label(registroForm.password) }}
+            {{ form_widget(registroForm.password, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(registroForm.password) }}
+        </div>
+        <div class="mb-3">
+            {{ form_label(registroForm.confirm_password) }}
+            {{ form_widget(registroForm.confirm_password, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(registroForm.confirm_password) }}
+        </div>
+
+        <div class="d-grid">
+            <button type="submit" class="btn btn-success">Crear Cuenta</button>
+        </div>
+
+        {{ form_end(registroForm) }}
+    </article>
+</section>
+{% endblock %}

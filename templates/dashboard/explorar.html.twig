@@ -1,0 +1,37 @@
+{% extends 'base_app.html.twig' %}
+{% block content %}
+  <section class="container py-4">
+    <h1 class="h3 mb-3">{{ title|default('Explorar viajes públicos') }}</h1>
+    {% if viajes is not empty %}
+      <div class="row g-3">
+        {% for v in viajes %}
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body d-flex flex-column">
+                <h2 class="h5 card-title">{{ v.titulo }}</h2>
+                {% if v.descripcion %}
+                  {% set desc = v.descripcion|upper %}
+                  <p class="card-text text-muted">
+                    {% if desc|length > 140 %}
+                      {{ desc|slice(0, 140) }}…
+                    {% else %}
+                      {{ desc }}
+                    {% endif %}
+                  </p>
+                {% endif %}
+                <div class="mt-auto d-flex justify-content-between align-items-center">
+                  <span class="badge text-bg-success">Público</span>
+                  <a href="{{ path('viajes_resumen', {id: v.id}) }}" class="btn btn-sm btn-outline-primary">Ver resumen</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="alert alert-info" role="alert">
+        Aún no hay viajes públicos publicados.
+      </div>
+    {% endif %}
+  </section>
+{% endblock %}

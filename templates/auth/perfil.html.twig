@@ -1,0 +1,15 @@
+{% extends 'base_app.html.twig' %}
+{% block content %}
+  <h1>{{ title }}</h1>
+  <h2 class="text-center mb-4">Tu perfil</h2>
+    <div class="row justify-content-center">
+      <div class="bg-white border rounded shadow-sm p-3 col-md-6 mx-2">
+        <h3 class="text-center mb-3">Información de usuario</h3>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><strong>Nombre:</strong>"nombre"</li>
+          <li class="list-group-item"><strong>Correo electrónico:</strong>"correo"</li>
+          <li class="list-group-item"><strong>Fecha de registro:</strong>"fecha registro"</li>
+        </ul>
+      </div>
+    </div>
+{% endblock %}

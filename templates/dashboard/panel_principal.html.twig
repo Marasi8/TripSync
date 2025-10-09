@@ -1,0 +1,20 @@
+{% extends 'base_app.html.twig' %}
+
+{% block content %}
+  <div class="container text-center my-4">
+      <h1>{{ title }}</h1>
+      <p>Bienvenido al panel principal.<br>
+         Aquí puedes gestionar tus viajes y configuraciones.<br>
+         Utiliza el menú de navegación para acceder a las diferentes secciones.
+      </p>
+
+      <div class="d-flex flex-column flex-lg-row justify-content-center gap-2 my-3">
+          <a href="{{ path('dashboard_explorar') }}" class="btn btn-success">Explorar viajes públicos</a>
+          <a href="{{ path('viajes_crear') }}" class="btn btn-success">Crear viaje</a>
+      </div>
+  </div>
+
+  <div class="container my-5 p-4 bg-light rounded shadow">
+      
+  </div>
+{% endblock %}
